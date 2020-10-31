@@ -5,8 +5,6 @@ const time = document.querySelector('img.time');
 const icon = document.querySelector('.icon img')
 
 const updateUI = (data) => {
-    // const cityDets = data.cityDets;
-    // const weather = data.weather;
 
     // destructure properties
     const { cityDets, weather } = data;
@@ -25,12 +23,8 @@ const updateUI = (data) => {
     const iconSrc = `img/icons/${weather.WeatherIcon}.svg`;
     icon.setAttribute('src', iconSrc);
 
-    let timeSrc = null;
-    if(weather.IsDayTime){
-        timeSrc = 'img/day.svg';
-    } else {
-        timeSrc = 'img/night.svg'
-    }
+    // Ternary operator
+    let timeSrc = weather.IsDayTime ? 'img/day.svg' : 'img/night.svg';
 
     time.setAttribute('src', timeSrc);
     
